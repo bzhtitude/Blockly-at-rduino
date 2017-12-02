@@ -109,35 +109,91 @@
 		</block>
 		<block type="text_length"></block>
 		<block type="text_isEmpty"></block>
-		<!-- <block type="text_indexOf"> -->
-		<!-- <value name="VALUE"> -->
-		<!-- <block type="variables_get"> -->
-		<!-- <field name="VAR" class="textVar">...</field> -->
-		<!-- </block> -->
-		<!-- </value> -->
-		<!-- </block> -->
-		<!-- <block type="text_charAt"> -->
-		<!-- <value name="VALUE"> -->
-		<!-- <block type="variables_get"> -->
-		<!-- <field name="VAR" class="textVar">...</field> -->
-		<!-- </block> -->
-		<!-- </value> -->
-		<!-- </block> -->
-		<!-- <block type="text_getSubstring"> -->
-		<!-- <value name="STRING"> -->
-		<!-- <block type="variables_get"> -->
-		<!-- <field name="VAR" class="textVar">...</field> -->
-		<!-- </block> -->
-		<!-- </value> -->
-		<!-- </block> -->
-		<!-- <block type="text_changeCase"></block> -->
-		<!-- <block type="text_trim"></block> -->
-		<!-- <block type="text_print"></block> -->
-		<!-- <block type="text_prompt_ext"> -->
-		<!-- <value name="TEXT"> -->
-		<!-- <block type="text"></block> -->
-		<!-- </value> -->
-		<!-- </block> -->
+		
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<block type="text_indexOf"> 
+			<value name="VALUE"> 
+			<block type="variables_get"> 
+				<field name="VAR" class="textVar">...</field> 
+			</block> 
+			</value> 
+		</block> 		
+		<block type="text_indexOfBZH"> 
+			<value name="TEXTE"> 
+				<block type="variables_get"> 
+					<field name="VAR" class="textVar">chaîne</field> 
+				</block> 
+			</value> 
+			<value name="SEARCH"> 
+				<block type="variables_get"> 
+					<field name="VAR" class="textVar">.?.?.</field> 
+				</block> 
+			</value>
+			<value name="INDEX"> 
+				<block type="math_number">
+					<field name="NUM">0</field>
+				</block>
+			</value>
+		</block> 
+		<block type="text_substringBZH"> 
+			<value name="TEXTE"> 
+				<block type="variables_get"> 
+					<field name="VAR" class="textVar">chaine</field> 
+				</block> 
+			</value> 
+			<value name="FROM"> 
+				<block type="math_number">
+					<field name="NUM">0</field>
+				</block>
+			</value>
+			<value name="TO"> 
+				<block type="math_number">
+					<field name="NUM">0</field>
+				</block>
+			</value>
+		</block>
+		<block type="text_replaceBZH"> 
+			<value name="TEXTE"> 
+				<block type="variables_get"> 
+					<field name="VAR" class="textVar">chaine</field> 
+				</block> 
+			</value> 
+			<value name="SUBS1"> 
+				<block type="variables_get"> 
+					<field name="VAR" class="textVar">.?.?.</field> 
+				</block> 
+			</value>
+			<value name="SUBS2"> 
+				<block type="variables_get"> 
+					<field name="VAR" class="textVar">.?.?.</field> 
+				</block> 
+			</value>
+		</block>
+		
+		<block type="text_charAt"> 
+			<value name="VALUE"> 
+			<block type="variables_get"> 
+				<field name="VAR" class="textVar">...</field> 
+			</block> 
+			</value> 
+		</block> 
+		<block type="text_getSubstring"> 
+			<value name="STRING"> 
+			<block type="variables_get"> 
+				<field name="VAR" class="textVar">...</field> 
+			</block> 
+			</value> 
+		</block> 
+		<block type="text_changeCase"></block> 
+		<block type="text_trim"></block> 
+		<block type="text_print"></block> 
+		<block type="text_prompt_ext"> 
+			<value name="TEXT"> 
+			<block type="text"></block> 
+			</value> 
+		</block> 
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
 	</category>
 	<!-- <category name="CAT_COLOR" colour="#c09e8c"> <block type="colour_picker"></block>
 		<block type="colour_random"></block> <block type="colour_rgb"> <value name="RED">
@@ -229,6 +285,35 @@
 			<block type="inout_attachInterrupt"></block>
 			<block type="inout_detachInterrupt"></block>
 		</category>
+		<category name="CAT_ARDUINO_TIME" colour="#00979D">
+			<block type="millis"></block>
+			<block type="millis_sec"></block>
+			<block type="inout_pulsein"></block>
+			<block type="inout_pulsein_timeout"></block>
+			<block type="base_delay">
+				<value name="DELAY_TIME">
+					<shadow type="math_number">
+						<field name="NUM">1000</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="base_delay_sec">
+				<value name="DELAY_TIME">
+					<shadow type="math_number">
+						<field name="NUM">5</field>
+					</shadow>
+				</value>
+			</block>
+			<block type="tempo_no_delay"></block>
+		</category>
+		<category name="CAT_ARDUINO_CONVERSION" colour="#00979D">
+			<block type="conversion_tochar"></block>
+			<block type="conversion_tobyte"></block>
+			<block type="conversion_toint"></block>
+			<block type="conversion_tofloat"></block>
+			<block type="conversion_toString"></block>
+			<block type="conversion_map"></block>
+		</category>
 		<category name="CAT_ARDUINO_OUT" colour="#00979D">
 			<block type="inout_buildin_led"></block>
 			<block type="inout_digital_write_validator"></block>
@@ -279,35 +364,6 @@
 			</block>
 			<block type="notone"></block>
 		</category>
-		<category name="CAT_ARDUINO_TIME" colour="#00979D">
-			<block type="millis"></block>
-			<block type="millis_sec"></block>
-			<block type="inout_pulsein"></block>
-			<block type="inout_pulsein_timeout"></block>
-			<block type="base_delay">
-				<value name="DELAY_TIME">
-					<shadow type="math_number">
-						<field name="NUM">1000</field>
-					</shadow>
-				</value>
-			</block>
-			<block type="base_delay_sec">
-				<value name="DELAY_TIME">
-					<shadow type="math_number">
-						<field name="NUM">5</field>
-					</shadow>
-				</value>
-			</block>
-			<block type="tempo_no_delay"></block>
-		</category>
-		<category name="CAT_ARDUINO_CONVERSION" colour="#00979D">
-			<block type="conversion_tochar"></block>
-			<block type="conversion_tobyte"></block>
-			<block type="conversion_toint"></block>
-			<block type="conversion_tofloat"></block>
-			<block type="conversion_toString"></block>
-			<block type="conversion_map"></block>
-		</category>
 		<category name="CAT_ARDUINO_COMM_SERIAL" colour="#00979D">
 			<block type="serial_init"></block>
 			<block type="serial_flush"></block>
@@ -350,15 +406,18 @@
 					</shadow>
 				</value>
 			</block>
-			<block type="serial_write_out"></block>
-			<block type="serial_available"></block>
-			<block type="serial_read"></block>
-			<block type="serial_line"></block>
+			
 			<block type="serial_print_multi">
 				<value name="N">
 					
 				</value>
 			</block>
+			
+			
+			<block type="serial_write_out"></block>
+			<block type="serial_available"></block>
+			<block type="serial_read"></block>
+			<block type="serial_line"></block>
 		</category>
 		<category name="CAT_ARDUINO_COMM_SOFTSERIAL" colour="#00979D">
 			<block type="soft_init"></block>
@@ -383,106 +442,7 @@
 		</category>
 		<sep></sep>
 	</category>
-	<category name="CAT_ANEMOROTATION" colour="#856D4D">
-		<block type="anemometre_vitesse_rotation">
-			<value name="PIN">
-				<shadow type="math_number">
-					<field name="NUM">2</field>
-				</shadow>
-			</value>
-		</block>
-		<block type="anemometre_vitesse_ventms">
-			<value name="PIN">
-				<shadow type="math_number">
-					<field name="NUM">2</field>
-				</shadow>
-			</value>
-			<value name="RAYONBRAS">
-				<shadow type="math_number">
-					<field name="NUM">7</field>
-				</shadow>
-			</value>
-			<value name="COEFETAL">
-				<shadow type="math_number">
-					<field name="NUM">1</field>
-				</shadow>
-			</value>
-		</block>	
-		<block type="anemometre_vitesse_ventkmh">
-			<value name="PIN">
-				<shadow type="math_number">
-					<field name="NUM">2</field>
-				</shadow>
-			</value>
-			<value name="RAYONBRAS">
-				<shadow type="math_number">
-					<field name="NUM">7</field>
-				</shadow>
-			</value>
-			<value name="COEFETAL">
-				<shadow type="math_number">
-					<field name="NUM">1</field>
-				</shadow>
-			</value>
-		</block>	
-		<block type="anemometre_vitesse_ventnoeud">
-			<value name="PIN">
-				<shadow type="math_number">
-					<field name="NUM">2</field>
-				</shadow>
-			</value>
-			<value name="RAYONBRAS">
-				<shadow type="math_number">
-					<field name="NUM">7</field>
-				</shadow>
-			</value>
-			<value name="COEFETAL">
-				<shadow type="math_number">
-					<field name="NUM">1</field>
-				</shadow>
-			</value>
-		</block>
-		<block type="anemometre_force_Beaufort">
-			<value name="PIN">
-				<shadow type="math_number">
-					<field name="NUM">2</field>
-				</shadow>
-			</value>
-			<value name="RAYONBRAS">
-				<shadow type="math_number">
-					<field name="NUM">7</field>
-				</shadow>
-			</value>
-			<value name="COEFETAL">
-				<shadow type="math_number">
-					<field name="NUM">1</field>
-				</shadow>
-			</value>
-		</block>		
-	</category>
-	<category name="CAT_LCD_SCREEN" colour="#87AD34">
-		<category name="CAT_LCD_I2C" colour="#87AD34">
-			<block type="lcd_i2c_lcdscan"></block>
-			<block type="lcd_i2c_lcdinit"></block>
-			<block type="lcd_i2c_lcdclear"></block>
-			<block type="lcd_i2c_lcdwrite">
-				<value name="COL">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="LIG">
-					<shadow type="math_number">
-						<field name="NUM">0</field>
-					</shadow>
-				</value>
-				<value name="TEXT">
-					<shadow type="text">
-						<field name="TEXT"></field>
-					</shadow>
-				</value>
-			</block>
-		</category>
+	<category name="CAT_LCD_SCREEN" colour="#57663B">
 		<category name="CAT_LCD_DFRobot_SHIELD_LCDKEYPAD" colour="#F39800">
 			<block type="LCD_Keypad_Shield_DFR_09">
 				<value name="TEXT1">
@@ -710,10 +670,6 @@
 		<block type="APDS9960_ColorSensor_red"></block>
 		<block type="APDS9960_ColorSensor_green"></block>
 		<block type="APDS9960_ColorSensor_blue"></block>
-	</category>
-	<category name="CAT_HX711" colour="#D9242D">
-		<block type="HX711_init"></block>
-		<block type="HX711_read"></block>
 	</category>
 	<category name="CAT_OLED_U8G" colour="#1B2944">
 		<block type="lp2i_u8g_draw_string" colour="#1B2944">
@@ -1441,7 +1397,6 @@
 		<category name="CAT_GROVE_IN" colour="#8ec31f">
 			<block type="grove_button"></block>
 			<block type="grove_rotary_angle"></block>
-			<block type="grove_ldr"></block>	
 			<block type="grove_tilt_switch"></block>
 			<block type="grove_temporature_sensor"></block>
 			<block type="grove_moisture_sensor"></block>
@@ -1789,17 +1744,6 @@
 				</value>
 			</block>
 			<block type="technozone_robot_ihm_gauge_write"></block>
-		</category>
-		<sep></sep>
-	</category>
-	<category name="CAT_MESURE" colour="#B7A700">	
-		<category name="CAT_DS18B20" colour="#B7A700">
-			<block type="ds18b20_search1"></block>
-			<block type="ds18b20_temp1"></block>
-		</category>
-		<category name="CAT_TSL2561" colour="#B7A700">
-			<block type="tsl2561_init"></block>
-			<block type="tsl2561_read"></block>
 		</category>
 		<sep></sep>
 	</category>
@@ -2519,17 +2463,16 @@
 	</category>
 	<category name="CAT_ETHERNET" colour="#FFCC66">
 		<category name="CAT_ETHERNET_INIT" colour="#FFCC66">
-			<block type="ethernet_begin_dhcp">
+			<block type="ethernet_begin_dhcp_client">
 				<value name="MAC_ADDRESS">
 					<block type="ethernet_mac_address"></block>
 				</value>
 			</block>
-			<block type="ethernet_begin_dhcp_server">
+			<block type="ethernet_begin_staticIP_client">
 				<value name="MAC_ADDRESS">
 					<block type="ethernet_mac_address"></block>
 				</value>
-			</block>
-			<block type="ethernet_localip"></block>
+			</block>			
 		</category>
 		<category name="CAT_ETHERNET_CLIENT" colour="#FFCC66">
 			<block type="ethernet_client_begin"></block>
@@ -2562,7 +2505,39 @@
 			<block type="ethernet_post_request"></block>
 		</category>
 		<category name="CAT_ETHERNET_SERVER" colour="#FFCC66">
-			<block type="ethernet_client_for_server"></block>			
+			<block type="ethernet_begin_dhcp_server">
+				<value name="MAC_ADDRESS">
+					<block type="ethernet_mac_address"></block>
+				</value>
+			</block>
+			<block type="ethernet_begin_staticIP_server">
+				<value name="MAC_ADDRESS">
+					<block type="ethernet_mac_address"></block>
+				</value>
+			</block>
+			<block type="ethernet_localip"></block>
+			<block type="ethernet_client_for_server"></block>
+			<block type="ethernet_HEADER_send"></block>
+			<block type="ethernet_HTML_send">
+				<value name="html">
+					<block type="text">
+						<field name="TEXT"></field>
+					</block>
+				</value>			
+			</block>
+			<block type="ethernet_PARSER_parse"></block>
+			<block type="ethernet_PARSER_init"></block>
+			<block type="ethernet_PARSER_end"></block>
+			<block type="ethernet_PARSER_count"></block>
+			<block type="ethernet_PARSER_purge"></block>
+			<block type="ethernet_PARSER_getmyparam">
+				<value name="myparam">
+					<block type="text">
+						<field name="paramètre"></field>
+					</block>
+				</value>			
+			</block>
+			
 		</category>
 	</category>	
 	<category name="CAT_BLYNK_CC" colour="#23C890">
