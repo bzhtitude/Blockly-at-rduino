@@ -31,21 +31,129 @@ goog.provide('Blockly.Blocks.ethernet');
 goog.require('Blockly.Blocks');
 goog.require('Blockly.Types');
 
-Blockly.Blocks['ethernet_begin_dhcp'] = {
+Blockly.Blocks['ethernet_begin_dhcp_client'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.ETHERNET_BEGIN_HELPURL);
     this.setColour(Blockly.Blocks.ethernet.HUE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ETHERNET_BEGIN_DHCP_TITLE)
+      .appendField(Blockly.Msg.ETHERNET_BEGIN_DHCP_CLIENT_TITLE)
       .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ETHERNET_VERSION_1,""],[Blockly.Msg.ETHERNET_VERSION_2,"2"]]), 'VERSION');
     this.appendValueInput("MAC_ADDRESS")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(Blockly.Msg.MAC_ADDRESS);
+      .appendField(Blockly.Msg.ETHERNET_MAC_ADDRESS);
     this.setOutput(true, 'Number');
     this.setTooltip(Blockly.Msg.ETHERNET_BEGIN_DHCP_TOOLTIP);
   }
 };
+
+Blockly.Blocks['ethernet_begin_dhcp_server'] = {		// by BZH
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.ETHERNET_BEGIN_HELPURL); // a finir
+    this.setColour("#336699");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_BEGIN_DHCP_SERVER_TITLE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ETHERNET_VERSION_1,""],[Blockly.Msg.ETHERNET_VERSION_2,"2"]]), 'VERSION');
+    this.appendValueInput("MAC_ADDRESS")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(Blockly.Msg.ETHERNET_MAC_ADDRESS);
+	this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_PORT)
+      .appendField(new Blockly.FieldTextInput("80"),"PORT");
+	this.setPreviousStatement(true);
+    this.setNextStatement(true);
+	this.setInputsInline(false);
+    this.setTooltip(Blockly.Msg.ETHERNET_BEGIN_DHCP_TOOLTIP); // à finir
+  }
+};
+////////////////////////////
+Blockly.Blocks['ethernet_begin_staticIP_server'] = {		// by BZH
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.ETHERNET_BEGIN_HELPURL); // a finir
+    this.setColour("#336699");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_BEGIN_STATICIP_SERVER_TITLE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ETHERNET_VERSION_1,""],[Blockly.Msg.ETHERNET_VERSION_2,"2"]]), 'VERSION');
+    this.appendValueInput("MAC_ADDRESS")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(Blockly.Msg.ETHERNET_MAC_ADDRESS);
+	this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_PORT)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("80"),"PORT");
+	this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_IP)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("172,16,32,29"),"IP");
+	  this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_DNS)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("172,16,32,1"),"DNS");
+	  this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_GATEWAY)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("172,16,32,1"),"GATEWAY");
+	  this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_SUBNET)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("255,255,252,0"),"SUBNET");
+	this.setPreviousStatement(true);
+    this.setNextStatement(true);
+	this.setInputsInline(false);
+    this.setTooltip(Blockly.Msg.ETHERNET_BEGIN_DHCP_TOOLTIP); // à finir
+  }
+};
+
+
+Blockly.Blocks['ethernet_begin_staticIP_client'] = {		// by BZH
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.ETHERNET_BEGIN_HELPURL); // a finir
+    this.setColour(Blockly.Blocks.ethernet.HUE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_BEGIN_STATICIP_CLIENT_TITLE)
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ETHERNET_VERSION_1,""],[Blockly.Msg.ETHERNET_VERSION_2,"2"]]), 'VERSION');
+    this.appendValueInput("MAC_ADDRESS")
+      .setCheck("String")
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(Blockly.Msg.ETHERNET_MAC_ADDRESS);
+	this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_IP)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("172,16,32,29"),"IP");
+	  this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_DNS)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("172,16,32,1"),"DNS");
+	  this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_GATEWAY)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("172,16,32,1"),"GATEWAY");
+	  this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_STATICIP_SUBNET)
+	  .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("255,255,252,0"),"SUBNET");
+	this.setPreviousStatement(true);
+    this.setNextStatement(true);
+	this.setInputsInline(false);
+    this.setTooltip(Blockly.Msg.ETHERNET_BEGIN_DHCP_TOOLTIP); // à finir
+  }
+};
+/////////////////////////////////////
+
+
+
+Blockly.Blocks['ethernet_client_for_server'] = {
+  init: function() {
+    this.setColour(Blockly.Blocks.ethernet.HUE);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TITLE);
+    this.setOutput(true, 'Boolean');
+    this.setTooltip(Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TOOLTIP);
+  }
+};
+
 
 Blockly.Blocks['ethernet_mac_address'] = {
   init: function() {
@@ -91,34 +199,25 @@ Blockly.Blocks['ethernet_client_begin'] = {
   }
 };
 
-Blockly.Blocks['ethernet_begin_dhcp_server'] = {		// by BZH
+Blockly.Blocks['ethernet_server_begin'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.ETHERNET_BEGIN_HELPURL); // a finir
+    this.setHelpUrl(Blockly.Msg.ETHERNET_BEGIN_HELPURL);
     this.setColour(Blockly.Blocks.ethernet.HUE);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ETHERNET_BEGIN_DHCP_SERVER_TITLE)
-      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ETHERNET_VERSION_1,""],[Blockly.Msg.ETHERNET_VERSION_2,"2"]]), 'VERSION');
-    this.appendValueInput("MAC_ADDRESS")
-      .setCheck("String")
+      .appendField(new Blockly.FieldDropdown([[Blockly.Msg.ETHERNET_VERSION_1,""],[Blockly.Msg.ETHERNET_VERSION_2,"2"]]), 'VERSION')
+      .appendField(Blockly.Msg.ETHERNET_BEGIN_TITLE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.ETHERNET_MAC_ADDRESS)
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(Blockly.Msg.ETHERNET_MAC_ADDRESS);
-	this.appendDummyInput()
-      .appendField(Blockly.Msg.ETHERNET_PORT)
-      .appendField(new Blockly.FieldTextInput("80"),"PORT");
-	this.setPreviousStatement(true);
-    this.setNextStatement(true);
-	this.setInputsInline(false);
-    this.setTooltip(Blockly.Msg.ETHERNET_BEGIN_DHCP_TOOLTIP); // à finir
-  }
-};
-
-Blockly.Blocks['ethernet_client_for_server'] = { // by BZH
-  init: function() {
-    this.setColour(Blockly.Blocks.ethernet.HUE);
+      .appendField(new Blockly.FieldTextInput("0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED"),"MAC_ADDRESS");
     this.appendDummyInput()
-      .appendField(Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TITLE);
-    this.setOutput(true, 'Boolean');
-    this.setTooltip(Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TOOLTIP);
+      .appendField(Blockly.Msg.IP_ADDRESS)
+      .setAlign(Blockly.ALIGN_RIGHT)
+      .appendField(new Blockly.FieldTextInput("192.168.0.100"),"IP_ADDRESS");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.ETHERNET_BEGIN_TOOLTIP);
   }
 };
 
@@ -139,7 +238,7 @@ Blockly.Blocks['ethernet_available'] = {
     this.setColour(Blockly.Blocks.ethernet.HUE);
     this.appendDummyInput()
       .appendField(Blockly.Msg.ETHERNET_AVAILABLE_TITLE);
-    this.setOutput(true, 'Number');
+    this.setOutput(true, 'Boolean');/////////////////////////////////////Number
     this.setTooltip(Blockly.Msg.ETHERNET_AVAILABLE_TOOLTIP);
   }
 };
@@ -165,7 +264,7 @@ Blockly.Blocks['ethernet_connect'] = {
       .setCheck("String")
       .appendField(Blockly.Msg.SERVER);
     this.appendDummyInput()
-      .appendField(Blockly.Msg.PORT)
+      .appendField(Blockly.Msg.ETHERNET_PORT)
       .appendField(new Blockly.FieldTextInput("80"),"PORT");
     this.setOutput(true, 'Number');
     this.setInputsInline(true);
@@ -208,7 +307,7 @@ Blockly.Blocks['ethernet_println'] = {
 Blockly.Blocks['ethernet_stop'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.ETHERNET_STOP_HELPURL);
-    this.setColour(Blockly.Blocks.ethernet.HUE);
+    this.setColour("#336699");
     this.appendDummyInput()
       .appendField(Blockly.Msg.ETHERNET_STOP_TITLE);
     this.setPreviousStatement(true, null);
@@ -257,17 +356,130 @@ Blockly.Blocks['ethernet_post_request'] = {
     this.appendValueInput("URL")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(Blockly.Msg.URL);
+      .appendField(Blockly.Msg.ETHERNET_POST_REQUEST_URL);
     this.appendValueInput("SERVER")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(Blockly.Msg.SERVER);
+      .appendField(Blockly.Msg.ETHERNET_POST_REQUEST_SERVER);
     this.appendValueInput("POST_DATA")
       .setCheck("String")
       .setAlign(Blockly.ALIGN_RIGHT)
-      .appendField(Blockly.Msg.ETHERNET_POST_DATA);
+      .appendField(Blockly.Msg.ETHERNET_POST_REQUEST_DATA);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setTooltip(Blockly.Msg.ETHERNET_POST_REQUEST_TOOLTIP);
   }
 };
+
+Blockly.Blocks['ethernet_HTML_send'] = {
+  init: function() {
+	this.setColour("#999999");
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.ETHERNET_HTML_SEND_TITLE);
+    this.appendValueInput("html")
+        .setCheck("String")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ETHERNET_HTML_SEND_HTMLJS);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_HEADER_send'] = {
+  init: function() {
+	this.setColour("#999999");
+    this.appendDummyInput()
+	    .appendField(Blockly.Msg.ETHERNET_HEADER_SEND_TITLE);
+	this.appendDummyInput()
+        .appendField("status :") 
+		.setAlign(Blockly.ALIGN_RIGHT)
+		.appendField(new Blockly.FieldDropdown(Blockly.Msg.ETHERNET_HEADER_SEND_FIELDDROPDOWN2), 'error');
+	this.appendDummyInput()
+        .appendField("type de la donnée :")   
+		.setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldDropdown(Blockly.Msg.ETHERNET_HEADER_SEND_FIELDDROPDOWN), 'datatype');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_PARSER_init'] = {
+  init: function() {
+	this.setColour("#333399");
+    this.appendDummyInput()
+	    .appendField(Blockly.Msg.ETHERNET_PARSER_INIT_TITLE);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_PARSER_parse'] = {
+  init: function() {
+	this.setColour("#333399");
+    //this.appendDummyInput()
+	//    .appendField(Blockly.Msg.ETHERNET_PARSER_PARSE_TITLE);
+	this.appendValueInput("input")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ETHERNET_PARSER_PARSE_INPUT);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_PARSER_end'] = {
+  init: function() {
+	this.setColour("#333399");
+    this.appendDummyInput()
+	    .appendField(Blockly.Msg.ETHERNET_PARSER_END_TITLE);
+	this.setOutput(true, 'Boolean');
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_PARSER_count'] = {
+  init: function() {
+	this.setColour("#333399");
+	this.appendDummyInput()
+	    .appendField(Blockly.Msg.ETHERNET_PARSER_COUNT_TITLE);
+	this.setOutput(true, 'Number');
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_PARSER_getmyparam'] = {
+  init: function() {
+	this.setColour("#333399");
+    this.appendDummyInput()
+	    .appendField(Blockly.Msg.ETHERNET_PARSER_GETMYPARAM_TITLE);
+	this.appendValueInput("myparam")
+        .setCheck("String")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(Blockly.Msg.ETHERNET_PARSER_GETMYPARAM_PARAM);
+	this.setOutput(true, 'Text');
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['ethernet_PARSER_purge'] = {
+  init: function() {
+	this.setColour("#333399");
+    this.appendDummyInput()
+	    .appendField(Blockly.Msg.ETHERNET_PARSER_PURGE_TITLE);
+	this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+	this.setTooltip("");
+	this.setHelpUrl("");
+  }
+};
+

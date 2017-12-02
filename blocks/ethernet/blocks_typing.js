@@ -4,7 +4,7 @@
 
 //****************************blynk_cc.js********************
 
-Blockly.Blocks.ethernet_begin_dhcp.getBlockType = function() {
+Blockly.Blocks.ethernet_begin_dhcp_client.getBlockType = function() {
    return Blockly.Types.NUMBER;
 };
 Blockly.Blocks.ethernet_mac_address.getBlockType = function() {
@@ -12,6 +12,16 @@ Blockly.Blocks.ethernet_mac_address.getBlockType = function() {
 };
 Blockly.Blocks.ethernet_client_begin.getBlockType = function() {
    return Blockly.Types.NUMBER;
+};
+
+Blockly.Blocks.ethernet_PARSER_end.getBlockType = function() {
+   return Blockly.Types.BOOLEAN;
+};
+Blockly.Blocks.ethernet_PARSER_count.getBlockType = function() {
+   return Blockly.Types.NUMBER;
+};
+Blockly.Blocks.ethernet_PARSER_getmyparam.getBlockType = function() {
+   return Blockly.Types.TEXT;
 };
 
 Blockly.Blocks.ethernet_client_for_server.getBlockType = function() {
@@ -22,10 +32,10 @@ Blockly.Blocks.ethernet_localip.getBlockType = function() {
    return Blockly.Types.NUMBER;
 };
 Blockly.Blocks.ethernet_available.getBlockType = function() {
-   return Blockly.Types.NUMBER;
+   return Blockly.Types.BOOLEAN;
 };
 Blockly.Blocks.ethernet_connected.getBlockType = function() {
-   return Blockly.Types.NUMBER;
+   return Blockly.Types.BOOLEAN;
 };
 Blockly.Blocks.ethernet_connect.getBlockType = function() {
    return Blockly.Types.NUMBER;
