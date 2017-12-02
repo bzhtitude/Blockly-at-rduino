@@ -28,7 +28,7 @@ goog.provide('Blockly.Arduino.ethernet');
 
 goog.require('Blockly.Arduino');
 
-Blockly.Arduino.ethernet_begin_dhcp = function() {
+Blockly.Arduino.ethernet_begin_dhcp_client = function() {
   var version = this.getFieldValue('VERSION');
   var mac = Blockly.Arduino.valueToCode(this, 'MAC_ADDRESS', Blockly.Arduino.ORDER_ATOMIC) || '0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED'
   mac = mac.replace(/"/g, "");
@@ -55,7 +55,59 @@ Blockly.Arduino.ethernet_begin_dhcp_server = function() {
   Blockly.Arduino.setups_['begin'] = 'Ethernet.begin(mac);';
   Blockly.Arduino.setups_['serveur_start'] = 'server.begin();';
   
-  var code = '';    // pas terrible mais je ne sais pas faire autrement
+  var code = '';  
+  return code;
+};
+
+Blockly.Arduino.ethernet_begin_staticIP_server = function() {
+  var version = this.getFieldValue('VERSION');
+  var mac = Blockly.Arduino.valueToCode(this, 'MAC_ADDRESS', Blockly.Arduino.ORDER_ATOMIC) || '0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED'
+  mac = mac.replace(/"/g, "");
+  var port = this.getFieldValue('PORT'); 
+  var ip = this.getFieldValue('IP'); 
+  var dns = this.getFieldValue('DNS'); 
+  var gateway = this.getFieldValue('GATEWAY'); 
+  var subnet = this.getFieldValue('SUBNET'); 
+  
+  
+  Blockly.Arduino.includes_['define_spi'] = '#include <SPI.h>';
+  Blockly.Arduino.includes_['define_ethernet'] = '#include <Ethernet' + version + '.h>';
+  Blockly.Arduino.definitions_['define_ethernet_server'] = 'EthernetServer server('+port+');';
+  Blockly.Arduino.definitions_['define_arduino_mac'] = 'byte mac[] = {' + mac + '};';
+  Blockly.Arduino.definitions_['define_arduino_ip'] = 'IPAddress ip(' + ip + ');';
+  Blockly.Arduino.definitions_['define_arduino_dns'] = 'IPAddress DNS(' + dns + ');';
+  Blockly.Arduino.definitions_['define_arduino_gateway'] = 'IPAddress gateway(' + gateway + ');';
+  Blockly.Arduino.definitions_['define_arduino_subnet'] = 'IPAddress subnet(' + subnet + ');';  
+  
+  Blockly.Arduino.setups_['begin'] = 'Ethernet.begin(mac,ip,DNS,gateway,subnet);';
+  Blockly.Arduino.setups_['serveur_start'] = 'server.begin();';
+  
+  var code = '';  
+  return code;
+};
+
+Blockly.Arduino.ethernet_begin_staticIP_client = function() {
+  var version = this.getFieldValue('VERSION');
+  var mac = Blockly.Arduino.valueToCode(this, 'MAC_ADDRESS', Blockly.Arduino.ORDER_ATOMIC) || '0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED'
+  mac = mac.replace(/"/g, "");
+  var ip = this.getFieldValue('IP'); 
+  var dns = this.getFieldValue('DNS'); 
+  var gateway = this.getFieldValue('GATEWAY'); 
+  var subnet = this.getFieldValue('SUBNET'); 
+  
+  
+  Blockly.Arduino.includes_['define_spi'] = '#include <SPI.h>';
+  Blockly.Arduino.includes_['define_ethernet'] = '#include <Ethernet' + version + '.h>';
+  Blockly.Arduino.definitions_['define_ethernet_client'] = 'EthernetClient client;';
+  Blockly.Arduino.definitions_['define_arduino_mac'] = 'byte mac[] = {' + mac + '};';
+  Blockly.Arduino.definitions_['define_arduino_ip'] = 'IPAddress ip(' + ip + ');';
+  Blockly.Arduino.definitions_['define_arduino_dns'] = 'IPAddress DNS(' + dns + ');';
+  Blockly.Arduino.definitions_['define_arduino_gateway'] = 'IPAddress gateway(' + gateway + ');';
+  Blockly.Arduino.definitions_['define_arduino_subnet'] = 'IPAddress subnet(' + subnet + ');';  
+  
+  Blockly.Arduino.setups_['begin'] = 'Ethernet.begin(mac,ip,DNS,gateway,subnet);';
+  
+  var code = '';  
   return code;
 };
 
@@ -63,9 +115,11 @@ Blockly.Arduino.ethernet_client_for_server = function() {
 
   Blockly.Arduino.includes_['define_ethernet_client'] = 'EthernetClient client;'; // en cas d'utilisation de procedure
   
-  var code = 'EthernetClient client = server.available()';   
+  var code = 'EthernetClient client = server.available()';   //// A REVOIR ///////////////////////////////////////////////////////////////////////////////////////
+  //return code;
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
 
 Blockly.Arduino.ethernet_mac_address = function () {
   var mac1 = this.getFieldValue('MAC_ADDRESS_1');
@@ -165,11 +219,107 @@ Blockly.Arduino.ethernet_post_request = function() {
   server = server.replace(/\"/g, "");
 
   var code = 'client.println("POST ' + url + ' HTTP/1.1");\n';
-  code += 'client.print(F("Host: ' + server + ');\n';
-  code += 'client.println(F("Connection: close"));\n';
-  code += 'client.println(F("Content-Type: application/x-www-form-urlencoded"));\n';
-  code += 'client.println(F("Content-Length: ' + post_data.length-2 + '"));\n';
+  code += 'client.println("Host: ' + server + '");\n';
+  code += 'client.println("Connection: close");\n';
+  code += 'client.println("Content-Type: application/x-www-form-urlencoded");\n';
+  code += 'client.println("Content-Length: ';  
+  code += (post_data.length)-2 ; // longueur de data - 2 pour les "
+  code += '");\n';
+  code += 'client.println("");\n';
   code += 'client.print(' + post_data +');\n';
 
   return code;
 };
+
+
+
+Blockly.Arduino.ethernet_HTML_send = function() {
+  var page_html = Blockly.Arduino.valueToCode(this, 'html', Blockly.Arduino.ORDER_ATOMIC);
+  
+  page_html = page_html.replace(/\"/g, "\\\" ");
+  
+  
+  var code ='client.println("'+page_html+'");\n';
+  code +='delay(1);\n';
+  return code;
+};
+
+Blockly.Arduino.ethernet_HEADER_send = function() {
+  var error = this.getFieldValue('error');	
+  var datatype = this.getFieldValue('datatype');	
+  if (error == "200")
+    {
+	  var code = 'client.println("HTTP/1.1 200 OK");\n';
+	}
+  if (error == "204")
+    {
+	  var code = 'client.println("HTTP/1.1 204 No Content");\n';
+	}
+  if (error == "404")
+    {
+	  var code = 'client.println("HTTP/1.1 404 Not Found");\n';
+	}  
+  if (datatype =="text")
+	{		
+		code +='client.println("Content-Type: text/html");\n';
+		code +='client.println("");\n';  
+	}
+  if (datatype =="png")
+	{
+		code +='client.println("Content-Type: image/png");\n';
+		code +='client.println("");\n';  
+	}
+  return code;
+};
+
+Blockly.Arduino.ethernet_PARSER_init = function() {
+	
+  Blockly.Arduino.definitions_['define_request'] = '#include <HttpRequest.h> \n';    
+  Blockly.Arduino.definitions_['create_request_object'] = 'HttpRequest httpReq; \n';
+  Blockly.Arduino.definitions_['variables_globales'] = 'char name[HTTP_REQ_PARAM_NAME_LENGTH], value[HTTP_REQ_PARAM_VALUE_LENGTH]; \n';
+  
+  var code ='char name[HTTP_REQ_PARAM_NAME_LENGTH], value[HTTP_REQ_PARAM_VALUE_LENGTH]; \n';
+  return code;
+};
+
+Blockly.Arduino.ethernet_PARSER_parse = function() {
+	
+  var cara = Blockly.Arduino.valueToCode(this, 'input', Blockly.Arduino.ORDER_ATOMIC) || ''
+  
+  var code ='httpReq.parseRequest('+cara+'); \n';
+  return code;
+};
+
+Blockly.Arduino.ethernet_PARSER_end = function() {
+	
+  var code ='httpReq.endOfRequest()';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.ethernet_PARSER_count = function() {
+	
+  var code ='httpReq.paramCount';
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.ethernet_PARSER_getmyparam = function() {
+	
+  
+  var myparam = Blockly.Arduino.valueToCode(this, 'myparam', Blockly.Arduino.ORDER_ATOMIC);	
+  Blockly.Arduino.definitions_['myfonction1'] = 'char* myparam (String parametre) {parametre.toCharArray(name, 16);int pos = httpReq.getParam(name, value);if (pos > 0) {return (value);}else {return "variable non trouvé";}}';
+  
+  var code ='myparam('+myparam+')';
+  
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino.ethernet_PARSER_purge = function() {
+  
+  var code ='httpReq.resetRequest(); \n';
+  return code;
+};
+
+
+
+
+
