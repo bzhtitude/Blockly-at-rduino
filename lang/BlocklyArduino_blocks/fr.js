@@ -4,10 +4,17 @@ goog.provide('Blockly.Msg.fr');
 
 goog.require('Blockly.Msg');
 
+head.load(
+"lang/BlocklyArduino/user/user_en.js",
+"lang/BlocklyArduino/user/user_fr.js",
+function() {
+    // Call a function when done
+    console.log("Done loading USER language file");
+});
+
+
 Blockly.Msg.ARRAY_CREATE_EMPTY_TITLE = 'vide !';
 Blockly.Msg.ARRAY_CREATE_WITH = "constituée de";
-Blockly.Msg.ARRAY_taille="de taille";
-Blockly.Msg.ARRAY_contenu="qui contient";
 Blockly.Msg.ARRAY_CREATE_WITH_CONTAINER_TITLE_ADD = "liste ou tableau";
 Blockly.Msg.ARRAY_CREATE_WITH_CONTAINER_TOOLTIP = "ajoute, enlève, ou réordonne les éléments dans le bloc Tableau.";
 Blockly.Msg.ARRAY_CREATE_WITH_HELPURL = "";
@@ -21,11 +28,6 @@ Blockly.Msg.ARRAY_GETINDEX_AT2 = "rang";
 Blockly.Msg.ARRAY_GETINDEX_HELPURL = "";
 Blockly.Msg.ARRAY_GETINDEX_ITEM = "dans la liste";
 Blockly.Msg.ARRAY_GETINDEX_TOOLTIP = "";
-Blockly.Msg.ARRAY_GETINDEX_TOOLTIP1="retourne la valeur stockée dans la liste ou tableau";
-Blockly.Msg.ARRAY_GETINDEX_TOOLTIP2="créé une liste ou tableau du type sélectionné";
-Blockly.Msg.ARRAY_GETINDEX_TOOLTIP3="fixe un (ou plusieurs) élément(s) de la liste ou tableau à la (aux) valeur(s) indiquée(s)";
-Blockly.Msg.ARRAY_create="définir le tableau";
-Blockly.Msg.ARRAY_fixe="mettre l'élément de rang";
 Blockly.Msg.ARRAY_DECLARE_NAME = "créer un tableau nommé";
 Blockly.Msg.ARRAY_DECLARE_TYPE = "de types";
 Blockly.Msg.ARRAY_DECLARE_SIZE = "d'un nombre d'éléments";
@@ -57,7 +59,7 @@ Blockly.Msg.CONTROLS_SWITCH_DEFAULT_TOOLTIP ="Ajoute un bloc d'actions par défa
 Blockly.Msg.VARIABLES_AS = "de type";
 Blockly.Msg.ARD_TYPE_CHAR = "caractère";
 Blockly.Msg.ARD_TYPE_TEXT = "texte";
-Blockly.Msg.ARD_TYPE_BOOL = "booléen ToR (Tout ou Rien)";
+Blockly.Msg.ARD_TYPE_BOOL = "booléen ToR";
 Blockly.Msg.ARD_TYPE_SHORT = "chiffre entier";
 Blockly.Msg.ARD_TYPE_NUMBER = "nombre entier";
 Blockly.Msg.ARD_TYPE_LONG = "nombre entier long";
@@ -85,11 +87,10 @@ Blockly.Msg.CAT_COLOR = "couleurs";
 Blockly.Msg.CAT_VARIABLES = "variables";
 Blockly.Msg.CAT_FUNCTIONS = "procédures & fonctions";
 
-Blockly.Msg.CAT_ANEMOROTATION = "anémomètre à coupelles"; //added september 16th 2017
 
 Blockly.Msg.CAT_ARDUINO = "arduino";
-Blockly.Msg.CAT_ARDUINO_IN = " - entrées (capteurs)";
-Blockly.Msg.CAT_ARDUINO_OUT = " - sorties (actionneurs)";
+Blockly.Msg.CAT_ARDUINO_IN = " - entrées";
+Blockly.Msg.CAT_ARDUINO_OUT = " - sorties";
 Blockly.Msg.CAT_ARDUINO_CONVERSION = " - conversions";
 Blockly.Msg.CAT_ARDUINO_TIME = " - temps & durées";
 Blockly.Msg.CAT_ARDUINO_COMM_SERIAL = " - communication USB";
@@ -207,7 +208,6 @@ Blockly.Msg.CAT_BT_ELECTRONICS = "Bluetooth Electronics"; //added 13 november 20
 Blockly.Msg.CAT_ICN = "ICN";  //added 3 january 2017
 
 Blockly.Msg.CAT_LCD_SCREEN = "écrans LCD";  //added 12 february 2017
-Blockly.Msg.CAT_LCD_I2C = " - LCD I2C"; //added 18/08/2017
 Blockly.Msg.CAT_LCD_DFRobot_SHIELD_LCDKEYPAD = " - DFRobot LCD Keypad";
 Blockly.Msg.CAT_LCD_GROVE_LCD = " - écran LCD Grove";
 Blockly.Msg.CAT_LCD_TECHNOZONE_LCD = " - écran LCD TZ51";
@@ -244,31 +244,11 @@ Blockly.Msg.CAT_AUTODUINO_UTIL = " - utile";
 
 Blockly.Msg.CAT_I2C = "I2C"; //added 26/05/2017
 Blockly.Msg.CAT_SPI = "SPI"; //added 26/05/2017
-Blockly.Msg.CAT_LCD_I2C = " - écran LCD I²C"; //added 18/08/2017
-Blockly.Msg.CAT_NULL = "libre"; //added 8/10/2017
-
-Blockly.Msg.CAT_HX711 = "capteur de poids"; //added 23/10/2017
-
-Blockly.Msg.CAT_MESURE = "Appareils de mesure"; //added 22/11/2017
-Blockly.Msg.CAT_DS18B20 = "Thermomètre DS18B20"; //added 15/09/2017
-Blockly.Msg.CAT_TSL2561 = "Luxmètre"; //added november 21th 2017
-
-Blockly.Msg.CAT_ACTIONNEURS = "actionneurs"; //added 03/11/2017
-Blockly.Msg.CAT_CAPTEURS = "capteurs";
-Blockly.Msg.CAT_ACTIONNEURS_del = " - DEL";
-Blockly.Msg.CAT_ACTIONNEURS_ARDUINO_matrice8x8 = " - matrice";
-Blockly.Msg.CAT_ACTIONNEURS_DFRobot_SHIELD_LCDKEYPAD = " - écran LCD";
-Blockly.Msg.CAT_ACTIONNEURS_ARDUINO_moteur = " - moteur";
-Blockly.Msg.CAT_ACTIONNEURS_DFPLAYER = " - audio";
 
 Blockly.Msg.FIELDDROPDOWN = [["1 (état haut)", "HIGH"], ["0 (état bas)", "LOW"]];
-Blockly.Msg.FIELDDROPDOWN_ONOFF = [["allumer", "ON"], ["éteindre", "OFF"]];
-Blockly.Msg.FIELDDROPDOWN_0_1 = [["HAUT", "HIGH"], ["BAS", "LOW"]];
-Blockly.Msg.ligne = [["1", "1"], ["2", "2"]];
-Blockly.Msg.colonne = [["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["14", "14"],["14", "14"],["15", "15"],["16", "16"]];
-Blockly.Msg.FIELDDROPDOWN_av_ar = [["avant", "HIGH"], ["arrière", "LOW"]];
-Blockly.Msg.INOUT_HIGH_LEVEL = "1(état haut)";
-Blockly.Msg.INOUT_LOW_LEVEL = "0(état bas)";
+Blockly.Msg.FIELDDROPDOWN_ONOFF = [["marche", "ON"], ["arrêt", "OFF"]]
+Blockly.Msg.INOUT_HIGH_LEVEL = "1 (état haut)";
+Blockly.Msg.INOUT_LOW_LEVEL = "0 (état bas)";
 
 //**********************************FieldInstance messages***********************************************
 Blockly.Msg.COMPONENT_WARN = 'A %1 configuration block with the same %2 name must be added to use this block!';
@@ -293,25 +273,25 @@ Blockly.Msg.RENAME_INSTANCE_TITLE = 'renommer toutes les "%1" instances en :';
 Blockly.Msg.ARDUINO_BASE_DELAY_HELPURL = "http://arduino.cc/en/Reference/delay";
 Blockly.Msg.ARDUINO_BASE_DELAY_DELAY_TIME = "faire une temporisation (en ms) de";
 Blockly.Msg.ARDUINO_BASE_DELAY_DELAY_TIME_SEC = "faire une temporisation (en s) de";
-Blockly.Msg.ARDUINO_BASE_DELAY_TOOLTIP = "spécifier le temps d'attente, arrête l'exécution du programme pendant la durée indiquée";
+Blockly.Msg.ARDUINO_BASE_DELAY_TOOLTIP = "spécifier le temps d'attente en millisecondes";
 Blockly.Msg.ARDUINO_BASE_SETUP = "initialisation (setup)";
 Blockly.Msg.ARDUINO_BASE_SETUP_HELPURL = "https://www.arduino.cc/en/Reference/Setup";
 Blockly.Msg.ARDUINO_BASE_LOOP = "répéter indéfiniment (loop)";
 Blockly.Msg.ARDUINO_BASE_SETUP_LOOP_HELPURL = "https://www.arduino.cc/en/Reference/Loop";
-Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED = "le temps écoulé (en ms) depuis le début du programme";
-Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_SEC = "le temps écoulé (en s) depuis le début du programme";
-Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_TOOLTIP = "la durée depuis que le programme a commencé (unsigned long)";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED = "temps écoulé (ms) depuis le début du programme";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_SEC = "temps écoulé (s) depuis le début du programme";
+Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_TOOLTIP = "durée depuis que le programme a commencé (unsigned long)";
 Blockly.Msg.ARDUINO_SINCE_PROGRAM_STARTED_HELPURL = "https://www.arduino.cc/en/Reference/Millis";
 Blockly.Msg.ARDUINO_BETWEEN = "nombre aléatoire entre";
 Blockly.Msg.ARDUINO_BETWEEN_AND = "et";
 Blockly.Msg.ARDUINO_BASE_MAP_HELPURL = "http://arduino.cc/en/Reference/map";
 Blockly.Msg.ARDUINO_BASE_MAP_NUM ="faire la transposée de";
 Blockly.Msg.ARDUINO_BASE_MAP_DMAX = "sur un intervalle de [0~";
-Blockly.Msg.ARDUINO_BASE_MAP_TOOLTIP = "convertit par proportionnalité une valeur comprise dans un intervalle de 0 à 1023 vers un autre intervalle";
+Blockly.Msg.ARDUINO_BASE_MAP_TOOLTIP = "transfère une valeur sur une échelle de 0 à 1023 vers une autre échelle";
 Blockly.Msg.ARDUINO_BASE_CODE = "ligne de code";
 Blockly.Msg.ARDUINO_BASE_CONST = "définitions préalables";
 Blockly.Msg.ARDUINO_BASE_DEFINE_HELPURL = "https://www.arduino.cc/en/Reference/Define";
-Blockly.Msg.ARDUINO_BASE_DEFINE = "définitions";
+Blockly.Msg.ARDUINO_BASE_DEFINE = "Définitions";
 Blockly.Msg.ARDUINO_BASE_DEFINE_TOOLTIP = "Définition de constantes & bibliothèques";
 Blockly.Msg.ARDUINO_BASE_END = 'attente infinie (FIN de programme)';
 Blockly.Msg.ARDUINO_BASE_BEGIN_TOOLTIP = "ce bloc permet de définir l'ordre dans lequel le programme doit s'exécuter";
@@ -328,27 +308,27 @@ Blockly.Msg.ARDUINO_CONSTRAIN_X = " le nombre";
 Blockly.Msg.ARDUINO_CONSTRAIN_A = "entre A = ";
 Blockly.Msg.ARDUINO_CONSTRAIN_B = "et B = ";
 Blockly.Msg.ARDUINO_CONSTRAIN_HELPURL = 'http://arduino.cc/en/Reference/Constrain';
-Blockly.Msg.ARDUINO_CONSTRAIN_TOOLTIP = 'Restreint un nombre a être dans un intervale de valeur';
+Blockly.Msg.ARDUINO_CONSTRAIN_TOOLTIP = 'Constrains a number to be within a range.';
 Blockly.Msg.ARDUINO_INOUT_BUILDIN_LED_HELPURL = "http://arduino.cc/en/Reference/DigitalWrite";
 Blockly.Msg.ARDUINO_INOUT_BUILDIN_LED_INPUT = "mettre la DEL sur la carte à l'état logique";
 Blockly.Msg.ARDUINO_INOUT_BUILDIN_LED_TOOLTIP = "éteint ou allume la DEL sur la carte Arduino";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_HELPURL = "http://arduino.cc/en/Reference/DigitalWrite";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_INPUT1 = "mettre la broche";
-Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_INPUT2 = "à l'état logique";
-Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_TOOLTIP = "écrit une valeur (0 ou 1) sur la broche choisie pour la sortie d'informations logiques";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_INPUT2 = "à l'état Logique";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_WRITE_TOOLTIP = "écrire un état logique 0 ou 1 sur une sortie spécifique";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_HELPURL = "http://arduino.cc/en/Reference/DigitalRead";
-Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_INPUT = "l'état logique sur la broche";
-Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_TOOLTIP = "lit la valeur (0 ou 1) sur la broche choisie pour l'entrée d'informations logiques";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_INPUT = "l'état logique de la broche";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_TOOLTIP = "lecture de l'état logique 0 ou 1 de la broche logique";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_PULL_UP = "front montant";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_READ_PULL_UP_TOOLTIP = "renvoie l'état logique (0 ou 1) de la broche indiquée\nrenvoie 1(état haut) par défaut si front montant est activé";
 Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
 Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_INPUT1 = "mettre la broche PWM~";
 Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_INPUT2 = "à la valeur";
-Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_TOOLTIP = "écrit une valeur (comprise entre 0 et 255) sur la broche choisie pour la sortie d'informations analogiques.\nATTENTION à vérifier que la broche choisie porte le signe PWM~ !";
+Blockly.Msg.ARDUINO_INOUT_PWM_WRITE_TOOLTIP = "envoyer une valeur comprise entre 0 et 255 sur une sortie spécifique\nATTENTION à vérifier le n° sur la carte !";
 Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
-Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_INPUT1 = "écrire sur la broche de sortie Analogique";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_INPUT1 = "écrire sur la broche Analogique";
 Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_INPUT2 = "la valeur";
-Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_TOOLTIP = "écrit une valeur (comprise entre 0 et 255) sur la broche choisie pour la sortie d'informations analogiques.\nATTENTION à vérifier que la broche choisie porte le signe PWM~ !";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_WRITE_TOOLTIP = "envoyer une valeur comprise entre 0 et 255 sur une sortie spécifique";
 Blockly.Msg.ARDUINO_TONE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite";
 Blockly.Msg.ARDUINO_TONE_INPUT1 = "émettre un son sur la broche";
 Blockly.Msg.ARDUINO_TONE_INPUT2 = "d'une fréquence (Hz)";
@@ -358,8 +338,8 @@ Blockly.Msg.ARDUINO_NOTONE_HELPURL = "http://arduino.cc/en/Reference/AnalogWrite
 Blockly.Msg.ARDUINO_NOTONE_INPUT = "stopper le son sur la broche";
 Blockly.Msg.ARDUINO_NOTONE_TOOLTIP = "arrêter le son sur la broche selectionnée";
 Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_HELPURL = "http://arduino.cc/en/Reference/AnalogRead";
-Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_INPUT = "la valeur lue sur la broche d'entrée Analogique";
-Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_TOOLTIP = "lit la valeur (comprise entre 0 et 1023) sur la broche choisie pour l'entrée d'informations analogiques.\nATTENTION à vérifier que la broche choisie soit de type A# (exemple : A0,A1,...) ";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_INPUT = "la valeur numérisée de l'entrée Analogique";
+Blockly.Msg.ARDUINO_INOUT_ANALOG_READ_TOOLTIP = "renvoie une valeur comprise entre 0 et 1023";
 Blockly.Msg.ARDUINO_INOUT_ONOFF_HELPURL = "http://arduino.cc/en/Reference/Constants";
 Blockly.Msg.ARDUINO_INOUT_STAT="de l'état";
 Blockly.Msg.ARDUINO_PULSEIN="durée (en µs) sur la broche";
@@ -396,9 +376,12 @@ Blockly.Msg.ARDUINO_SERIAL_PRINT_TOOLTIP = "envoie des données sur le port sér
 Blockly.Msg.ARDUINO_SERIAL_PRINT_VAR_TEXT = "afficher sur le port série le texte :";
 Blockly.Msg.ARDUINO_SERIAL_PRINT_VAR_NUMBER = "suivi du nombre :";
 Blockly.Msg.ARDUINO_SERIAL_PRINT_VAR_NEW_LINE = "puis d'un saut de ligne ?";
-Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_NUMBER = "Afficher sur le port Série :";
+
+
+Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_NUMBER = "Afficher sur le port Série";
 Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_NEWLINE = "Nouvelle ligne?";
 Blockly.Msg.ARDUINO_SERIAL_PRINT_MULTI_FIELDDROPDOWN = [["oui", "true"], ["non", "false"]];
+
 
 Blockly.Msg.LKL_ATTACHINTERRUPT_PIN = 'quand une interruption externe sur la broche';
 Blockly.Msg.LKL_DETACHINTERRUPT_PIN = "désactiver l'interruption externe de la broche";
@@ -408,7 +391,7 @@ Blockly.Msg.LKL_MODE = 'correspond à un';
 Blockly.Msg.LKL_DROPDOWN = [['front montant', "RISING"], ['front descendant', "FALLING"], ["changement d'état", "CHANGE"], ["état bas", "LOW"]];
 
 //SERIAL
-Blockly.Msg.Serial_Init="fixer la vitesse (en bauds) du port série à";
+Blockly.Msg.Serial_Init="fixer la vitesse (bauds) du port série à";
 Blockly.Msg.Serial_Print="afficher sur la console série";
 Blockly.Msg.Serial_Write="envoyer sur le port série";
 Blockly.Msg.Serial_write_out="envoyer sur le port série";
@@ -473,10 +456,6 @@ Blockly.Msg.GROVE_INOUT_ROT_ANGLE_HELPURL = "http://www.seeedstudio.com/wiki/ind
 Blockly.Msg.GROVE_INOUT_ROT_ANGLE_TEXT = "valeur du potentiomètre";
 Blockly.Msg.GROVE_INOUT_ROT_ANGLE_INPUT = "sur la broche";
 Blockly.Msg.GROVE_INOUT_ROT_ANGLE_TOOLTIP = "Lecture analogique dont le résultat varie entre 0 et 1023";
-Blockly.Msg.GROVE_INOUT_LDR_HELPURL = "https://www.seeedstudio.com/Grove-Light-Sensor-p-746.html";
-Blockly.Msg.GROVE_INOUT_LDR_TEXT = "valeur de la LDR";
-Blockly.Msg.GROVE_INOUT_LDR_INPUT = "sur la broche";
-Blockly.Msg.GROVE_INOUT_LDR_TOOLTIP = "Lecture analogique dont le résultat varie entre 0 et 1023";
 Blockly.Msg.GROVE_INOUT_TILT_HELPURL = "http://www.seeedstudio.com/wiki/index.php?title=GROVE_-_Starter_Bundle_V1.0b#Tilt_switch";
 Blockly.Msg.GROVE_INOUT_TILT_TEXT = "l'état de l'interrupteur à bascule";
 Blockly.Msg.GROVE_INOUT_TILT_INPUT = "sur la broche";
@@ -646,7 +625,7 @@ Blockly.Msg.ROBOTS_MOTORS_ZUMO_FRS_TOOLTIP = "Drive Pololu Zumo (flipped right m
 Blockly.Msg.ROBOTS_MOTORS_ZUMO_FBS_TITLE = "Zumo - Flip both & speed";
 Blockly.Msg.ROBOTS_MOTORS_ZUMO_FBS_TOOLTIP = "Pololu Zumo (2 moteurs) + vitesse";
 Blockly.Msg.ROBOTS_MOTORS_ZUMO_FCT_FOLLOWER = "suiveur de ligne";
-Blockly.Msg.ROBOTS_MOTORS_ZUMO_FCT_FOLLOWER_TOOLTIP = "se calibre en cherchant une ligne noire, puis se cale dessus :\n appuyer 1 fois sur le bouton pour calibrer\nappuyer une 2ème fois pour lancer les moteurs";
+Blockly.Msg.ROBOTS_MOTORS_ZUMO_FCT_FOLLOWER_TOOLTIP = "se calibre en cherchant une ligne noire, puis se cale dessus";
 Blockly.Msg.ROBOTS_MOTORS_ZUMO_FCT_FOLLOWER_HELPURL = "https://www.pololu.com/docs/0J57/7.d";
 Blockly.Msg.ROBOTS_MOTORS_ZUMO_FCT_SENSORCALIBRATION = "calibrage manuel du suiveur";
 Blockly.Msg.ROBOTS_MOTORS_ZUMO_FCT_SENSORCALIBRATION_TOOLTIP = "calibre pendant 10s en exposant les couleurs blanc/noir, puis allume la diode 13";
@@ -868,22 +847,11 @@ Blockly.Msg.TECHNOZONE51_TEXT163 = "envoyer sur le bluetooth le message ";
 Blockly.Msg.TECHNOZONE51_TEXT164 = "Envoyer un message sur la liaison Bluetooth (réf : BT1)";
 Blockly.Msg.TECHNOZONE51_TEXT165 = "connecté aux broches";
 Blockly.Msg.TECHNOZONE51_TEXT166 = "codes de la phrase à prononcer : ";
-Blockly.Msg.TECHNOZONE51_TEXT167 = "synthétiseur vocal";
+Blockly.Msg.TECHNOZONE51_TEXT167 = "Synthétiseur vocal";
 Blockly.Msg.TECHNOZONE51_TEXT168 = "(restrictions d'usage : clic droit -> aide)";
 Blockly.Msg.TECHNOZONE51_TEXT169 = "vitesse [0..1023] :";
 Blockly.Msg.TECHNOZONE51_TEXT170 = "hauteur [0..1023] :";
 Blockly.Msg.TECHNOZONE51_TEXT171 = "distortion [0..1023] :";
-
-Blockly.Msg.TECHNOZONE51_TEXT172 = "alarme piéton";
-Blockly.Msg.TECHNOZONE51_TEXT173 = "feu rouge piéton";
-Blockly.Msg.TECHNOZONE51_TEXT174 = "feu vert piéton";
-Blockly.Msg.TECHNOZONE51_TEXT175 = "sur la voie 1";
-Blockly.Msg.TECHNOZONE51_TEXT176 = "sur la voie 2";
-Blockly.Msg.TECHNOZONE51_TEXT177 = "appel piéton voie 1";
-Blockly.Msg.TECHNOZONE51_TEXT178 = "appel piéton voie 2";
-Blockly.Msg.TECHNOZONE51_TEXT179 = "le capteur ILS";
-Blockly.Msg.TECHNOZONE51_TEXT180 = "le capteur LDR";
-Blockly.Msg.TECHNOZONE51_TEXT181 = "le capteur IR";
 
 //added july 17th 2015
 Blockly.Msg.BQ_PIN = "sur la broche";
@@ -1196,40 +1164,6 @@ Blockly.Msg.ROMEO3_SWITCH = "appui sur le bouton";
 Blockly.Msg.ROMEO_SWITCH_FIELDDROPDOWN = [["S1", "0"], ["S2", "147"], ["S3", "333"], ["S4", "510"], ["S5", "745"], ["aucun", "1023"]];
 Blockly.Msg.ROMEO3_SWITCH_TOOLTIP = "Vérifier le switch S1-S5 !!! Lire la valeur sur l'entrée Analogique A0 : 0 pour S1, 147 pour S2, 333 pour S3, 510 pour S4, 745 pour S5, 1023 si aucun";
 
-//Added september 16th 2017
-Blockly.Msg.VITESSE_ROTATION_HELPURL = "En cours de rédaction";
-Blockly.Msg.VITESSE_ROTATION_TEXT = "vitesse de rotation (en tours/minute)";
-Blockly.Msg.VITESSE_ROTATION_INPUT = "des coupelles sur la broche n°";
-Blockly.Msg.VITESSE_ROTATION_TOOLTIP = "Mesure de la vitesse de rotation des coupelles (avec un interrupteur reed) en tours par minute (tr/min) toutes les 5 secondes";
-
-Blockly.Msg.VITESSE_VENTMS_HELPURL = "En cours de rédaction";
-Blockly.Msg.VITESSE_VENTMS_TEXT = "vitesse du vent (en m/s)";
-Blockly.Msg.VITESSE_VENTMS_INPUT = "du capteur connecté sur la broche n°";
-Blockly.Msg.VITESSE_VENTMS_RAYON = "Rayon des bras de l'anémomètre (en cm)";
-Blockly.Msg.VITESSE_VENTMS_COEFF = "Coefficient d'étalonnage ";
-Blockly.Msg.VITESSE_VENTMS_TOOLTIP = "Mesure de la vitesse du vent (avec un interrupteur reed) en mètres par seconde (m/s) toutes les 5 secondes";
-
-Blockly.Msg.VITESSE_VENTKMH_HELPURL = "En cours de rédaction";
-Blockly.Msg.VITESSE_VENTKMH_TEXT = "vitesse du vent (en km/h)";
-Blockly.Msg.VITESSE_VENTKMH_INPUT = "du capteur connecté sur la broche n°";
-Blockly.Msg.VITESSE_VENTKMH_RAYON = "Rayon des bras de l'anémomètre (en cm)";
-Blockly.Msg.VITESSE_VENTKMH_COEFF = "Coefficient d'étalonnage ";
-Blockly.Msg.VITESSE_VENTKMH_TOOLTIP = "Mesure de la vitesse du vent (avec un interrupteur reed) en kilomètre par heure (km/h) toutes les 5 secondes";
-
-Blockly.Msg.VITESSE_VENTNOEUD_HELPURL = "En cours de rédaction";
-Blockly.Msg.VITESSE_VENTNOEUD_TEXT = "vitesse du vent (en noeuds)";
-Blockly.Msg.VITESSE_VENTNOEUD_INPUT = "du capteur connecté sur la broche n°";
-Blockly.Msg.VITESSE_VENTNOEUD_RAYON = "Rayon des bras de l'anémomètre (en cm)";
-Blockly.Msg.VITESSE_VENTNOEUD_COEFF = "Coefficient d'étalonnage ";
-Blockly.Msg.VITESSE_VENTNOEUD_TOOLTIP = "Mesure de la vitesse du vent (avec un interrupteur reed) en noeuds toutes les 5 secondes";
-
-Blockly.Msg.FORCE_BEAUFORT_HELPURL = "En cours de rédaction";
-Blockly.Msg.FORCE_BEAUFORT_TEXT1 = "force du vent en degré de Beaufort";
-Blockly.Msg.FORCE_BEAUFORT_TEXT2 = "(la mesure envoie un nombre entier de 0 à 12)";
-Blockly.Msg.FORCE_BEAUFORT_INPUT = "Capteur connecté sur la broche n°";
-Blockly.Msg.FORCE_BEAUFORT_RAYON = "Rayon des bras de l'anémomètre (en cm)";
-Blockly.Msg.FORCE_BEAUFORT_COEFF = "Coefficient d'étalonnage ";
-Blockly.Msg.FORCE_BEAUFORT_TOOLTIP = "Mesure de la force du vent (avec un interrupteur reed) en degré de Beaufort toutes les 5 secondes";
 
 //Added august 20th 2016
 Blockly.Msg.FLYCAM_SWITCH_HELPURL = "http://tic.technologiescollege.fr/wiki/doku.php/fr/arduino/flycam";
@@ -1376,8 +1310,8 @@ Blockly.Msg.APDS9960_BLUE_TITLE = "code RVB de Bleu (0~255)";
 Blockly.Msg.APDS9960_COLORSENSOR_TOOLTIP = "renvoie une valeur codée sur 10 bits pour le mélange RVB classique";
 
 //******** pbra 20160613 L298N
-Blockly.Msg.ROBOTS_MOTORS_L298N_MOTOR_TITLE = "L298N contrôleur moteur";
-Blockly.Msg.ROBOTS_MOTORS_L298N_MOTOR_INIT_TITLE = "L298N Contrôleur Moteur Initialisation";
+Blockly.Msg.ROBOTS_MOTORS_L298N_MOTOR_TITLE = "L298N Contrôleur Moteur";
+Blockly.Msg.ROBOTS_MOTORS_L298N_MOTOR_INIT_TITLE = "L298N Contrôleur Moteur Init";
 Blockly.Msg.ROBOTS_MOTORS_L298N_ID = "Identifiant"
 Blockly.Msg.ROBOTS_MOTORS_L298N_MOTOR_SPEED = "Vitesse";
 Blockly.Msg.ROBOTS_MOTORS_L298N_MOTOR_PIN_IN1 = "Broche IN1 (direction)";
@@ -1392,7 +1326,7 @@ Blockly.Msg.ROBOTS_MOTORS_L298N_TOOLTIP = "Bloc L298N, utiliser le même id que 
 
 //******** pbra 20160607 PinMode
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_HELPURL = "https://www.arduino.cc/en/Reference/PinMode";
-Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_INPUT1 = "changer le mode de fonctionnement de la broche";
+Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_INPUT1 = "Changer le mode de fonctionnement de la broche";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_INPUT2 = "à";
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_DROPDOWN = [["ENTREE", "INPUT"], ["SORTIE", "OUTPUT"], ["ENTREE_PULLUP", "INPUT_PULLUP"]];
 Blockly.Msg.ARDUINO_INOUT_DIGITAL_MODE_TOOLTIP = "Configurer la broche spécifée pour fonctionner comme une entrée ou une sortie";
@@ -1537,12 +1471,12 @@ Blockly.Msg.I2C_STOP_TEXT = "I2C_STOP";
 Blockly.Msg.I2C_STOP_TOOLTIP = "envoi un Stop et donc libère le bus";
 Blockly.Msg.I2C_STOP_HELPURL = "http://playground.arduino.cc/Main/SoftwareI2CLibrary";
 
-Blockly.Msg.I2C_WRITE_TEXT = "I2C_WRITE";
+Blockly.Msg.I2C_WRITE_TEXT = "I2C_TRANSFERT";
 Blockly.Msg.I2C_WRITE_DATA = "data";
 Blockly.Msg.I2C_WRITE_TOOLTIP = "écrit un octet de donnée";
 Blockly.Msg.I2C_WRITE_HELPURL = "http://playground.arduino.cc/Main/SoftwareI2CLibrary";
 
-Blockly.Msg.I2C_READ_TEXT = "I2C_READ";
+Blockly.Msg.I2C_READ_TEXT = "I2C_RECEIVE";
 Blockly.Msg.I2C_READ_LAST = "Last? : ";
 Blockly.Msg.I2C_READ_FIELDDROPDOWN = [["non","false"], ["oui","true"]];
 Blockly.Msg.I2C_READ_TOOLTIP = "Reçoit un octet de donnée avec l'envoi d'un paramètre last = oui pour le dernier";
@@ -1573,14 +1507,6 @@ Blockly.Msg.SPI_SEND_HELPURL = "";
 Blockly.Msg.SPI_RECEIVE_TEXT = "SPI_RECEIVE";
 Blockly.Msg.SPI_RECEIVE_TOOLTIP = "récupère une donnée";
 Blockly.Msg.SPI_RECEIVE_HELPURL = "" ;
-
-//******** light sensor TSL2561
-
-Blockly.Msg.TSL2561_MISC_HELPURL = "https://learn.adafruit.com/tsl2561/wiring-the-tsl2561-sensor";
-Blockly.Msg.TSL2561_READ_TITLE = "l'éclairement en lux";
-Blockly.Msg.TSL2561_READ_TOOLTIP = "Renvoie la valeur de l'éclairement en lux (max 17 000 lux)";
-Blockly.Msg.TSL2561_INIT_TITLE = "Initialisation du capteur TSL2561";
-Blockly.Msg.TSL2561_INIT_TOOLTIP = "par défaut gain nul et temps d'intégration 13 ms";
 
 //**** AUTODUINO ************************************************************************************
 // definition of the different target mockups
@@ -1851,8 +1777,8 @@ Blockly.Msg.AUTODUINO_EDGE_UP_DOWN = [["front montant", "UP"], ["front descedant
 
 //**** BLYNK**www.Blync.cc***Added**by**Mr**leroy**July**24th**************************************************************
 Blockly.Msg.BLYNK_HELPURL = 'http://docs.blynk.cc/';
-Blockly.Msg.BLYNK_usb_TEXT ='uniquement pour une Arduino Uno connectée en USB';
-Blockly.Msg.BLYNK_usb_INPUT ='entrez votre Jeton de connexion';
+Blockly.Msg.BLYNK_usb_TEXT ='carte Arduino connectée en USB';
+Blockly.Msg.BLYNK_usb_INPUT ='votre code ';
 Blockly.Msg.BlYNK_usb_TOOLTIP = "carte Arduino et USB";
 Blockly.Msg.BLYNK_AUTH = "Auth";
 Blockly.Msg.BLYNK_CONNECT_TITLE = "connecter le serveur Blynk";
@@ -1885,16 +1811,25 @@ Blockly.Msg.BLYNK_TEXT = "texte";
 //**** ETHERNET *****************************************************************************//
 
 
+
 Blockly.Msg.ETHERNET_AVAILABLE_HELPURL = "https://www.arduino.cc/en/Reference/ClientAvailable";
-Blockly.Msg.ETHERNET_AVAILABLE_TITLE = "Client.availalbe";
+Blockly.Msg.ETHERNET_AVAILABLE_TITLE = "Requête client en cours";
 Blockly.Msg.ETHERNET_AVAILABLE_TOOLTIP = "Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).";
-Blockly.Msg.ETHERNET_BEGIN_DHCP_TITLE = "Begin (DHCP) Client";
+Blockly.Msg.ETHERNET_BEGIN_DHCP_CLIENT_TITLE = "Begin (DHCP) Client";
 Blockly.Msg.ETHERNET_BEGIN_DHCP_SERVER_TITLE = "Begin (DHCP) Server";
+Blockly.Msg.ETHERNET_BEGIN_STATICIP_SERVER_TITLE = "Begin (StaticIP) Server";
+Blockly.Msg.ETHERNET_BEGIN_STATICIP_CLIENT_TITLE = "Begin (StaticIP) Client";
+////
+Blockly.Msg.ETHERNET_STATICIP_IP = "IP fixe de la carte";
+Blockly.Msg.ETHERNET_STATICIP_DNS = "DNS local";
+Blockly.Msg.ETHERNET_STATICIP_GATEWAY = "Passerelle";
+Blockly.Msg.ETHERNET_STATICIP_SUBNET = "Masque sous-réseau";
+////
 Blockly.Msg.ETHERNET_BEGIN_DHCP_TOOLTIP = "Using Ethernet.begin(mac) with the proper network setup, the Ethernet shield will automatically obtain an IP address.";
 Blockly.Msg.ETHERNET_BEGIN_HELPURL = "https://www.arduino.cc/en/Reference/EthernetBegin";
 Blockly.Msg.ETHERNET_BEGIN_TITLE = "Begin";
 Blockly.Msg.ETHERNET_BEGIN_TOOLTIP = "Initializes the ethernet library and network settings.";
-Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TITLE = "Requete Client"; 
+Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TITLE = "Requête Client"; 
 Blockly.Msg.ETHERNET_CLIENT_FOR_SERVER_TOOLTIP = "Un client envoie une requete"; 
 Blockly.Msg.ETHERNET_CLIENT_PRINTLN_HELPURL = "https://www.arduino.cc/en/Reference/ClientPrintln";
 Blockly.Msg.ETHERNET_CLIENT_PRINTLN_TITLE = "Client.Println";
@@ -1911,42 +1846,45 @@ Blockly.Msg.ETHERNET_CONNECT_TOOLTIP = "Connects to a specified IP address and p
 Blockly.Msg.ETHERNET_GET_REQUEST_HELPURL = "";
 Blockly.Msg.ETHERNET_GET_REQUEST_TITLE = "GET Request";
 Blockly.Msg.ETHERNET_GET_REQUEST_TOOLTIP = "Create GET Request.";
+
+Blockly.Msg.ETHERNET_HTML_SEND_TITLE = "SEND HTML PAGE";
+Blockly.Msg.ETHERNET_HTML_SEND_HTMLJS = "page html/JS";
+Blockly.Msg.ETHERNET_HEADER_SEND_TITLE = "SEND HEADER HTTP/1.1";
+Blockly.Msg.ETHERNET_HEADER_SEND_FIELDDROPDOWN = [["text/html", "text"], ["image/png", "png"]];
+
+////
+Blockly.Msg.ETHERNET_HEADER_SEND_FIELDDROPDOWN2 = [["OK", "200"], ["Pas de contenu", "204"], ["Erreur", "404"]];
+////
+
+Blockly.Msg.ETHERNET_PARSER_INIT_TITLE = "Initialisation Analyseur de requête";
+Blockly.Msg.ETHERNET_PARSER_PARSE_TITLE = "";
+Blockly.Msg.ETHERNET_PARSER_PARSE_INPUT = "Analyse de la requête";//"Requête reçue";
+Blockly.Msg.ETHERNET_PARSER_END_TITLE = "Fin de requête ?";
+Blockly.Msg.ETHERNET_PARSER_COUNT_TITLE = "nombre de paramètres détectés ?";
+Blockly.Msg.ETHERNET_PARSER_GETMYPARAM_TITLE = "recupère le contenu du paramètre : ";
+Blockly.Msg.ETHERNET_PARSER_GETMYPARAM_PARAM = "nom du paramètre: ";
+Blockly.Msg.ETHERNET_PARSER_PURGE_TITLE = "Fin de l'analyse";
+
 Blockly.Msg.ETHERNET_LOCALIP_HELPURL = "https://www.arduino.cc/en/Reference/EthernetLocalIP";
-Blockly.Msg.ETHERNET_LOCALIP_TITLE = "localIP";
+Blockly.Msg.ETHERNET_LOCALIP_TITLE = "local IP";
 Blockly.Msg.ETHERNET_LOCALIP_TOOLTIP = "Returns the IP address of the Ethernet shield";
+Blockly.Msg.ETHERNET_MAC_ADDRESS = "MAC Address";
 Blockly.Msg.ETHERNET_MAC_ADDRESS_TOOLTIP = "Edit Mac Address";
+Blockly.Msg.ETHERNET_PORT = "Port";
 Blockly.Msg.ETHERNET_POST_DATA = "Data";
 Blockly.Msg.ETHERNET_POST_REQUEST_HELPURL = "";
 Blockly.Msg.ETHERNET_POST_REQUEST_TITLE = "POST Request";
+Blockly.Msg.ETHERNET_POST_REQUEST_URL = "URL";
+Blockly.Msg.ETHERNET_POST_REQUEST_SERVER = "serveur hôte";
+Blockly.Msg.ETHERNET_POST_REQUEST_DATA ="Données";
+
 Blockly.Msg.ETHERNET_POST_REQUEST_TOOLTIP = "Create POST Request.";
 Blockly.Msg.ETHERNET_READ_HELPURL = "https://www.arduino.cc/en/Reference/ClientRead";
-Blockly.Msg.ETHERNET_READ_TITLE = "Client.Read";
+Blockly.Msg.ETHERNET_READ_TITLE = "Texte de la requête en cours";
 Blockly.Msg.ETHERNET_READ_TOOLTIP = "Read the next byte received from the server the client is connected to (after the last call to read()).";
 Blockly.Msg.ETHERNET_STOP_HELPURL = "https://www.arduino.cc/en/Reference/ClientStop";
-Blockly.Msg.ETHERNET_STOP_TITLE = "Client.Stop";
-Blockly.Msg.ETHERNET_STOP_TOOLTIP = "Disconnect from the server.";
+Blockly.Msg.ETHERNET_STOP_TITLE = "Fermeture IPSocket";
+Blockly.Msg.ETHERNET_STOP_TOOLTIP = "Déconnexion du client";
 Blockly.Msg.ETHERNET_VERSION_1 = "Ethernet";
 Blockly.Msg.ETHERNET_VERSION_2 = "Ethernet2";
 Blockly.Msg.ETHERNET_VERSION_V2 = "Ethernet_v2";
-
-//********************null*************//
-Blockly.Msg.NULL_TOOLTIP = "texte libre pour description d'algorithmes";
-
-
-//********************HX711 Load cell*************//
-Blockly.Msg.HX711_HELPURL = "https://learn.sparkfun.com/tutorials/load-cell-amplifier-hx711-breakout-hookup-guide?_ga=2.253088841.1374984898.1508777134-607511387.1508777134";
-Blockly.Msg.HX711_INIT_TITLE = "calibrage du capteur";
-Blockly.Msg.HX711_INIT_TOOLTIP = "point de référence pour les mesures, avec ou sans charge réelle, lire la valeur de calibrage dans la console série à ouvrir";
-Blockly.Msg.HX711_READ_TITLE = "poids lu (kg)";
-Blockly.Msg.HX711_READ_TEXT = "avec une correction de";
-Blockly.Msg.HX711_READ_TOOLTIP = "le facteur de correction est celui renvoyé sur la console série par le bloc de calibrage";
-
-
-//********************SENSORS ACTUATORS*************//
-Blockly.Msg.lm35_1 = "température mesurée";
-Blockly.Msg.lm35_2 = "renvoie la température mesurée par un LM35 en degré celcius(de 0 à 80°)";
-Blockly.Msg.matrice8x8 = "symbole de la matrice";
-Blockly.Msg.matrice8x8_symbole_TOOLTIP = "définition d'un symbole pour la matrice :\n 0 éteint une DEL\n 1 allume une DEL";
-Blockly.Msg.ultrason_distance1 = "distance mesurée";
-Blockly.Msg.ultrason_distance2 = "retourne la distance mesurée (de 0 à 100 cm)";
-Blockly.Msg.lp2i_mp3_prev = "lire le fichier mp3 précédent";
